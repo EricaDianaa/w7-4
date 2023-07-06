@@ -29,8 +29,8 @@ buttonLoad1.addEventListener("click", function(){
 let col= document.createElement("div")
    col.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
    col.innerHTML=  `
-             <div class="card mb-4 shadow-sm">
-          <img src= "${img.src.medium}" class="card-img-top alt="">
+             <div class="card mb-4 shadow-sm h-100">
+          <img src= "${img.src.medium}" class="card-img-top " alt="">
                 <div class="card-body">
                   <h5 class="card-title">Dog</h5>
                   <p class="card-text">
@@ -63,6 +63,7 @@ let col= document.createElement("div")
 
               `
  row.appendChild(col)
+ return col
 })
 
 })
@@ -90,20 +91,19 @@ const createdati1= function(){
 })
 .then((dati)=>{
     console.log(dati)
-    
+   
     //RIFERIMENTI BOTTONI LOAD
 
 let buttonLoad2= document.getElementById("button2")
 let photo= document.getElementById("img")
-
-
 dati.photos.forEach(img => {
     buttonLoad2.addEventListener("click", function(){
-        let col= document.createElement("div")
-        col.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
-        col.innerHTML=  `
+  
+        let col1= document.createElement("div")
+        col1.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
+        col1.innerHTML=  `
                   <div class="card mb-4 shadow-sm "">
-               <img src= "${img.src.medium}" class="card-img-top alt="">
+               <img src= "${img.src.medium}" class="card-img-top" alt="">
                      <div class="card-body">
                        <h5 class="card-title">kitten</h5>
                        <p class="card-text">
@@ -132,14 +132,14 @@ dati.photos.forEach(img => {
                    </div> 
      
                    `
-                   row.appendChild(col)
+                   row.appendChild(col1)
    
     })
      //BOTTONE ELIMINA
-    let deletebutton2= document.querySelectorAll("#hide")
+    let deletebutton2= document.querySelectorAll(".deleteButton")
 deletebutton2.forEach((element1)=>{
     element1.addEventListener("click",function(){
-  element1.parentElement.parentElement.parentElement.parentElement.classList.add("d-none")
+     
 console.log(deletebutton2)
  })
 })
@@ -189,7 +189,7 @@ dati.photos.forEach(img1 => {
         col3.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
         col3.innerHTML=  `
                   <div class="card mb-4 shadow-sm "">
-               <img src= "${img1.src.medium}" class="card-img-top alt="">
+               <img src= "${img1.src.medium}" class="card-img-top" alt="">
                      <div class="card-body">
                        <h5 class="card-title">${img1.photographer}</h5>
                        <p class="card-text">
@@ -226,7 +226,7 @@ dati.photos.forEach(img1 => {
 })
 
 .catch((err)=>{
-    console.log(err)
+    console.log("Errore",err)
 })
 
  }
