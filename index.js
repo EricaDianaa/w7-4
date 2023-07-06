@@ -21,18 +21,49 @@ const createdati= function(){
     //RIFERIMENTI BOTTONI LOAD
 let buttonLoad1= document.getElementById("button1")
 let buttonLoad2= document.getElementById("button2")
-let photo= document.getElementById("img")
+// let photo= document.getElementById("img")
 
 
-dati.photos.forEach(img => {
+ dati.photos.forEach(img => {
 buttonLoad1.addEventListener("click", function(){
-    let newImg = document.createElement('img')
-    newImg.setAttribute('src', img.src.medium)
-photo.appendChild(newImg)
+let col= document.createElement("div")
+   col.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
+   col.innerHTML=  `
+             <div class="card mb-4 shadow-sm">
+          <img src= "${img.src.medium}" class="card-img-top alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Dog</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                      <button
+                        id="hide"
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        hide
+                      </button>
+                    </div>
+                    <small class="text-muted">${img.id}</small>
+                  </div>
+                </div>
+              </div> 
+
+              `
+              row.appendChild(col)
 })
-
-
-
 })
 
 
@@ -74,18 +105,53 @@ let photo= document.getElementById("img")
 
 dati.photos.forEach(img => {
     buttonLoad2.addEventListener("click", function(){
-        let newImg2 = document.createElement('img')
-    newImg2.setAttribute('src', img.src.medium)
+        let col= document.createElement("div")
+        col.classList.add("col", "col-sm-6", "col-md-6","col-lg-3" )
+        col.innerHTML=  `
+                  <div class="card mb-4 shadow-sm "">
+               <img src= "${img.src.medium}" class="card-img-top alt="">
+                     <div class="card-body">
+                       <h5 class="card-title">kitten</h5>
+                       <p class="card-text">
+                         This is a wider card with supporting text below as a natural
+                         lead-in to additional content. This content is a little bit
+                         longer.
+                       </p>
+                       <div
+                         class="d-flex justify-content-between align-items-center"
+                       >
+                         <div class="btn-group">
+                           <button
+                             type="button"
+                             class="btn btn-sm btn-outline-secondary"
+                           >
+                             View
+                           </button>
+                           <button id="hide"
+                            
+                             type="button"
+                             class="btn btn-sm btn-outline-secondary"
+                           >
+                             hide
+                           </button>
+                         </div>
+                         <small class="text-muted">${img.id}</small>
+                       </div>
+                     </div>
+                   </div> 
+     
+                   `
+                   row.appendChild(col)
    
-    photo.appendChild(newImg2)
     })
 
-    
-})
-let deletebutton= document.querySelectorAll("#hide")
+    let deletebutton= document.querySelectorAll("#hide")
 deletebutton.forEach((element)=>{
     element.addEventListener("click",function(){
-       element.parentElement.parentElement.parentElement.remove() 
+      console.log("ciao")
+})
+
+
     })
 
 
