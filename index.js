@@ -17,7 +17,7 @@ const createdati= function(){
 })
 .then((dati)=>{
     console.log(dati)
-    
+    console.log(dati.page)
  //RIFERIMENTI BOTTONI LOAD
 let buttonLoad1= document.getElementById("button1")
 
